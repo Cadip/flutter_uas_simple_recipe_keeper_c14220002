@@ -1,28 +1,22 @@
 import 'package:flutter/material.dart';
 import '/auth/auth_service.dart';
-
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
 }
-
 class _RegisterPageState extends State<RegisterPage> {
-  //get auth service
   final authService = AuthService();
 
-  //text controllers
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
 
   void signUp() async {
-    //prepare data
     final email = _emailController.text;
     final password = _passwordController.text;
     final confirmPassword = _confirmPasswordController.text;
-    //check match password
     if (password != confirmPassword) {
       ScaffoldMessenger.of(
         context,
@@ -30,10 +24,8 @@ class _RegisterPageState extends State<RegisterPage> {
       return;
     }
 
-    //attempt sign up
     try {
       await authService.signUpWithEmailPassword(email, password);
-      //pop this register page
       Navigator.pop(context);
     } catch (e) {
       if (mounted) {
