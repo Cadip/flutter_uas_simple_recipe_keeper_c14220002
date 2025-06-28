@@ -31,7 +31,7 @@ flutter run
 
 ## 🔐 Akun Dummy (Untuk Uji Coba)
 
-- **Email:** adi@gmail.com  
+- **Email:** adi@gmail  
 - **Password:** 22022004
 
 ---
